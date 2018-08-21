@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import SwiftSDK
 
+let gid = "1000001"
+let gkey = "7Q/Rh-p_goN,zd?"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = UIColor.white
+        let vc = ViewController()
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        UIApplication.shared.isStatusBarHidden = true
+        //初始化SDK
+        SwiftSDKPortal.initSDK(gameID: gid, gameKey: gkey)
+        
         return true
     }
 
